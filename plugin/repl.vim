@@ -2,10 +2,6 @@ function! s:GetTextRange(start, end)
 	return trim(join(getline(a:start, a:end), "\n")) . "\n"
 endfunction
 
-" function! s:GetTextSelection()
-" 	return s:GetTextRange(getpos("'<")[1],getpos("'>")[1])
-" endfunction
-
 function! s:GetCurrentTextBlock()
 	return s:GetTextRange(getpos("'{")[1], getpos("'}")[1])
 endfunction
@@ -13,8 +9,6 @@ endfunction
 function! s:GetTerminalBuffer()
 	if (! exists("b:dst_term"))
 		let b:dst_term = s:ChooseTerminalBuffer()
-		" The following doesn't handle multiple concurrent terminals well:
-		" let b:dst_term = input("Buffer name or exact ID? ", "", "buffer")
 	endif
 	return b:dst_term
 endfunction
