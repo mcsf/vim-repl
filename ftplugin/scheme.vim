@@ -1,1 +1,1 @@
-SendBlockSetEnterKey
+REPLSendOnEnter

@@ -7,10 +7,10 @@ function! s:GetCurrentTextBlock()
 endfunction
 
 function! s:GetTerminalBuffer()
-	if (! exists("b:dst_term"))
-		let b:dst_term = s:ChooseTerminalBuffer()
+	if (! exists("b:repl_dst_term"))
+		let b:repl_dst_term = s:ChooseTerminalBuffer()
 	endif
-	return b:dst_term
+	return b:repl_dst_term
 endfunction
 
 function! s:ChooseTerminalBuffer()
@@ -31,7 +31,7 @@ function! s:SendRangeToTerminal(start, end)
 	call term_sendkeys(s:GetTerminalBuffer(), s:GetTextRange(a:start, a:end))
 endfunction
 
-command! SendBlock call s:SendBlockToTerminal()
-command! -range SendSelection call s:SendRangeToTerminal(<line1>, <line2>)
-command! SendBlockSetEnterKey map <buffer> <CR> :SendBlock<CR>|
-            \ vmap <buffer> <CR> :.SendSelection<CR>
+command! REPLSendBlock call s:SendBlockToTerminal()
+command! -range REPLSendSelection call s:SendRangeToTerminal(<line1>, <line2>)
+command! REPLSendOnEnter map <buffer> <CR> :REPLSendBlock<CR>|
+            \ vmap <buffer> <CR> :.REPLSendSelection<CR>
