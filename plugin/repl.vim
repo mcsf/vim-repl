@@ -7,7 +7,7 @@ function! s:GetCurrentTextBlock()
 endfunction
 
 function! s:GetTerminalBuffer()
-	if (! exists("b:repl_dst_term"))
+	if (! exists("b:repl_dst_term") || ! bufexists(b:repl_dst_term))
 		let b:repl_dst_term = s:ChooseTerminalBuffer()
 	endif
 	return b:repl_dst_term
