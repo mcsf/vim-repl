@@ -33,5 +33,6 @@ endfunction
 
 command! REPLSendBlock call s:SendBlockToTerminal()
 command! -range REPLSendSelection call s:SendRangeToTerminal(<line1>, <line2>)
-command! REPLSendOnEnter map <buffer> <CR> :REPLSendBlock<CR>|
-            \ vmap <buffer> <CR> :.REPLSendSelection<CR>
+
+nmap <buffer> <CR> :REPLSendBlock<CR>
+vmap <buffer> <CR> :.REPLSendSelection<CR>
