@@ -3,7 +3,7 @@ function! s:GetTextRange(start, end)
 endfunction
 
 function! s:GetCurrentTextBlock()
-	return s:GetTextRange(getpos("'{")[1], getpos("'}")[1])
+	return s:GetTextRange(getpos("'{")[1], getpos("'}")[1]) . "\n"
 endfunction
 
 function! s:GetTerminalBuffer()
