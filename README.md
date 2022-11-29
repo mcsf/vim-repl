@@ -10,16 +10,22 @@ Press `<cr>` (<kbd>Enter</kbd>) over a paragraph of text to send it to a termina
 
 ## Mappings
 
-| Mode		| Mapping	| Description									|
-| ----		| -------	| -----------									|
-| normal	| `<cr>`	| Send current paragraph to terminal.			|
-| visual	| `<cr>`	| Send current visual selection to terminal.	|
+| Mode      | Mapping   | Description                                       |
+| ----      | -------   | -----------                                       |
+| normal    | `<cr>`    | Send current paragraph to terminal.               |
+| visual    | `<cr>`    | Send current visual-line selection to terminal.   |
+
+These are enabled either locally with `:REPLEnableBuffer` or globally with `:REPLEnableAll`.
+
+Tip: add `REPLEnableBuffer` to your local `ftplugin/<lang>.vim` files.
+
 
 ## Commands
 
-- `REPLSendOnEnter`: Enable `<cr>` (<kbd>Enter</kbd>) mapping for the current buffer.
 - `REPLSendBlock`: Send current paragraph to terminal.
 - `REPLSendSelection`: Send current range to terminal.
+- `REPLEnableBuffer`: Enable `<cr>` (<kbd>Enter</kbd>) mapping for the current buffer.
+- `REPLEnableAll`: Enable `<cr>` (<kbd>Enter</kbd>) mapping globally.
 
 ## Variables
 
